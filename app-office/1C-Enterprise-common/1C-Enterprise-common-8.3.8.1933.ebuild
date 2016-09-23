@@ -7,21 +7,21 @@ EAPI="5"
 
 inherit rpm versionator
 
-DESCRIPTION="1C ERP system common files"
+DESCRIPTION="1C:Enterprise common files"
 HOMEPAGE="http://v8.1c.ru/"
 
-MY_PV="$(replace_version_separator 3 '-' )"
+DIST_PV="$(replace_version_separator 3 '-' )"
 NP="1C_Enterprise83-common"
 
-SLOT=$(get_version_component_range 1-4)
+SLOT=${PV}
 LICENSE="1CEnterprise_en"
 KEYWORDS="amd64 x86"
 RESTRICT="fetch strip"
 
-SRC_URI="x86? ( ${NP}-${MY_PV}.i386.rpm
-         nls? ( ${NP}-nls-${MY_PV}.i386.rpm ) ) 
-         amd64? ( ${NP}-${MY_PV}.x86_64.rpm
-           nls? ( ${NP}-nls-${MY_PV}.x86_64.rpm ) )"
+SRC_URI="x86? ( ${NP}-${DIST_PV}.i386.rpm
+         nls? ( ${NP}-nls-${DIST_PV}.i386.rpm ) ) 
+         amd64? ( ${NP}-${DIST_PV}.x86_64.rpm
+           nls? ( ${NP}-nls-${DIST_PV}.x86_64.rpm ) )"
 
 IUSE="-nls"
 
@@ -41,8 +41,8 @@ pkg_nofetch() {
     einfo "1. Please download from:" 
     einfo "${DISTLINK}"
     einfo "2. Extract:"
-    einfo " ${NP}-${MY_PV}.${ARCH_SUF}.rpm"
-    use nls && einfo " ${NP}-nls-${MY_PV}.${ARCH_SUF}.rpm"
+    einfo " ${NP}-${DIST_PV}.${ARCH_SUF}.rpm"
+    use nls && einfo " ${NP}-nls-${DIST_PV}.${ARCH_SUF}.rpm"
     einfo " To ${DISTDIR}"
 }
 
