@@ -1,0 +1,11 @@
+<repositories version="1.0">
+<repo priority="50" quality="experimental" status="unofficial">
+<name>iteampro</name>
+<description>iTeamPro Overlay</description>
+<owner>
+<email>admin@iteampro.ru</email>
+</owner>
+<source type="git">git://github.com/abutorin/gentoo_overlay</source>
+</repo>
+
+</repositories>
