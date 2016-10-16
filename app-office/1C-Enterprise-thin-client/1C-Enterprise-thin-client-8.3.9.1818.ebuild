@@ -54,6 +54,6 @@ src_install() {
     elif use amd64 ; then
 	ARCH_SUF="x86_64"
     fi
-	dodir /opt/1C/${ARCH_SUF}/${PV}
-	mv "${WORKDIR}"/opt/1C/v8.3/${ARCH_SUF}/* "${D}"/opt/1C/${ARCH_SUF}/${PV}
+    dodir /opt/1C/${ARCH_SUF}/${PV}
+    mv "${WORKDIR}"/opt/1C/v8.3/${ARCH_SUF}/* "${D}"/opt/1C/${ARCH_SUF}/${PV}
 }

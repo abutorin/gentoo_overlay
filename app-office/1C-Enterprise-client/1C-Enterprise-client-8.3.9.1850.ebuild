@@ -7,11 +7,11 @@ EAPI="5"
 
 inherit rpm versionator
 
-DESCRIPTION="1C:Enterprise application server"
+DESCRIPTION="1C:Enterprise client"
 HOMEPAGE="http://v8.1c.ru/"
 
 DIST_PV="$(replace_version_separator 3 '-' )"
-NP="1C_Enterprise83-server"
+NP="1C_Enterprise83-client"
 
 SLOT=${PV}
 LICENSE="1CEnterprise_en"
@@ -24,19 +24,27 @@ SRC_URI="x86? ( ${NP}-${DIST_PV}.i386.rpm
            nls? ( ${NP}-nls-${DIST_PV}.x86_64.rpm ) )"
 
 IUSE="-nls"
-         
-RDEPEND="=app-office/1C-Enterprise-common-${PVR}"
+RDEPEND="=app-office/1C-Enterprise-server-${PVR} 
+        >=net-libs/webkit-gtk-1.4.3 
+        >=media-gfx/imagemagick-6.6.9 
+        >=media-libs/freetype-2.1.9
+        >=media-libs/fontconfig-2.3.0
+        >=gnome-extra/libgsf-1.10.1
+        >=dev-libs/glib-2.12.4
+        >=app-crypt/mit-krb5-1.4.2
+        media-fonts/corefonts"
 		   
 S="${WORKDIR}"
 
 pkg_nofetch() {
     if use x86 ; then
-        DISTLINK="https://releases.1c.ru/version_files?nick=Platform83&ver=${PVR}/rpm.tar.gz"
+        DISTLINK="https://releases.1c.ru/version_files?nick=Platform83&ver=${PVR}/client.rpm32.tar.gz"
         ARCH_SUF="i386"
     elif use amd64 ; then
-        DISTLINK="https://releases.1c.ru/version_files?nick=Platform83&ver=${PVR}/rpm64.tar.gz"
+        DISTLINK="https://releases.1c.ru/version_files?nick=Platform83&ver=${PVR}/client.rpm64.tar.gz"
         ARCH_SUF="x86_64"
     fi
+
     einfo "1. Please download from:" 
     einfo "${DISTLINK}"
     einfo "2. Extract:"
