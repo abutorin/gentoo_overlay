@@ -25,7 +25,7 @@ SRC_URI="x86? ( ${NP}-${DIST_PV}.i386.rpm
 
 IUSE="-nls"
          
-RDEPEND="=app-office/1C-Enterprise-server-${PVR} 
+RDEPEND="=app-office/1C-Enterprise-common-${PVR} 
         >=net-libs/webkit-gtk-1.4.3 
         >=media-gfx/imagemagick-6.6.9 
         >=media-libs/freetype-2.1.9

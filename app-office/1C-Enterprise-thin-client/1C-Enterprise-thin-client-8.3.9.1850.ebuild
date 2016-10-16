@@ -27,7 +27,7 @@ SRC_URI="x86? ( ${NP}-${DIST_PV}.i386.rpm
 
 IUSE="-nls"
 
-RDEPEND="=app-office/1C-Enterprise-server-${PVR} 
+RDEPEND="!=app-office/1C-Enterprise-common-${PVR} 
         >=net-libs/webkit-gtk-1.4.3 
         >=media-gfx/imagemagick-6.6.9 
         >=media-libs/freetype-2.1.9
@@ -65,4 +65,6 @@ src_install() {
     fi
     dodir /opt/1C/${ARCH_SUF}/${PV}
     mv "${WORKDIR}"/opt/1C/v8.3/${ARCH_SUF}/* "${D}"/opt/1C/${ARCH_SUF}/${PV}
+    
+    make_desktop_entry "/opt/1C/${ARCH_SUF}/${PV}/1cv8c" "1С(${PVR}) Тонкий клиент" 1cv8c-${PVR} "Office;Finance;" "Terminal=false\nStartupNotify=true"
 }
