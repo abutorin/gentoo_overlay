@@ -25,19 +25,16 @@ SRC_URI="x86? ( ${NP}-${DIST_PV}.i386.rpm
 
 IUSE="-nls"
 
-#RDEPEND="app-office/1C-Enterprise-common-${PVR}"
-		   
 S="${WORKDIR}"
 
-if use x86 ; then
-    DISTLINK="https://releases.1c.ru/version_files?nick=Platform83&ver=${PVR}/rpm.tar.gz"
-    ARCH_SUF="i386"
-elif use amd64 ; then
-    DISTLINK="https://releases.1c.ru/version_files?nick=Platform83&ver=${PVR}/rpm64.tar.gz"
-    ARCH_SUF="x86_64"
-fi
-
 pkg_nofetch() {
+    if use x86 ; then
+        DISTLINK="https://releases.1c.ru/version_files?nick=Platform83&ver=${PVR}/rpm.tar.gz"
+        ARCH_SUF="i386"
+    elif use amd64 ; then
+        DISTLINK="https://releases.1c.ru/version_files?nick=Platform83&ver=${PVR}/rpm64.tar.gz"
+        ARCH_SUF="x86_64"
+    fi
     einfo "1. Please download from:" 
     einfo "${DISTLINK}"
     einfo "2. Extract:"
@@ -47,6 +44,12 @@ pkg_nofetch() {
 }
 
 src_install() {
-	dodir /opt/1C/${ARCH_SUF}/${PV}
-	mv "${WORKDIR}"/opt/1C/v8.3/${ARCH_SUF}/* "${D}"/opt/1C/${ARCH_SUF}/${PV}
+    if use x86 ; then
+	ARCH_SUF="i386"
+    elif use amd64 ; then
+	ARCH_SUF="x86_64"
+    fi
+
+    dodir /opt/1C/${ARCH_SUF}/${PV}
+    mv "${WORKDIR}"/opt/1C/v8.3/${ARCH_SUF}/* "${D}"/opt/1C/${ARCH_SUF}/${PV}
 }

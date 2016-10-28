@@ -24,8 +24,15 @@ SRC_URI="x86? ( ${NP}-${DIST_PV}.i386.rpm
            nls? ( ${NP}-nls-${DIST_PV}.x86_64.rpm ) )"
 
 IUSE="-nls"
-         #app-office/1C-Enterprise-common
-RDEPEND="=app-office/1C-Enterprise-server-${PVR}"
+RDEPEND="=app-office/1C-Enterprise-server-${PVR} 
+        >=net-libs/webkit-gtk-1.4.3 
+        >=media-gfx/imagemagick-6.6.9 
+        >=media-libs/freetype-2.1.9
+        >=media-libs/fontconfig-2.3.0
+        >=gnome-extra/libgsf-1.10.1
+        >=dev-libs/glib-2.12.4
+        >=app-crypt/mit-krb5-1.4.2
+        media-fonts/corefonts"
 		   
 S="${WORKDIR}"
 

@@ -25,8 +25,16 @@ SRC_URI="x86? ( ${NP}-${DIST_PV}.i386.rpm
 
 IUSE="-nls"
          
-RDEPEND="=app-office/1C-Enterprise-common-${PVR}"
-		   
+RDEPEND="=app-office/1C-Enterprise-common-${PVR} 
+        >=net-libs/webkit-gtk-1.4.3 
+        >=media-gfx/imagemagick-6.6.9 
+        >=media-libs/freetype-2.1.9
+        >=media-libs/fontconfig-2.3.0
+        >=gnome-extra/libgsf-1.10.1
+        >=dev-libs/glib-2.12.4
+        >=app-crypt/mit-krb5-1.4.2
+        media-fonts/corefonts"
+        
 S="${WORKDIR}"
 
 pkg_nofetch() {
