@@ -35,17 +35,18 @@ RDEPEND="!=app-office/1C-Enterprise-common-${PVR}
         >=gnome-extra/libgsf-1.10.1
         >=dev-libs/glib-2.12.4
         >=app-crypt/mit-krb5-1.4.2
-        media-fonts/corefonts"
+        media-fonts/corefonts
+        x11-themes/gtk-engines-adwaita"
         
 S="${WORKDIR}"
 
 pkg_nofetch() {
     DISTLINK=""
     if use x86 ; then
-        DISTLINK="https://releases.1c.ru/version_files?nick=Platform83&ver=${PVR}/thin.client.rpm32.tar.gz"
+        DISTLINK="https://releases.1c.ru/version_files?nick=Platform83&ver=${PVR}"
 	ARCH_SUF="i386"
     elif use amd64 ; then
-        DISTLINK="https://releases.1c.ru/version_files?nick=Platform83&ver=${PVR}/thin.client.rpm64.tar.gz"
+        DISTLINK="https://releases.1c.ru/version_files?nick=Platform83&ver=${PVR}"
 	ARCH_SUF="x86_64"
     fi
 

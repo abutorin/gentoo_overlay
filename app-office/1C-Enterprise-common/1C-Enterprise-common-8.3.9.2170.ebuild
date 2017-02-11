@@ -29,10 +29,10 @@ S="${WORKDIR}"
 
 pkg_nofetch() {
     if use x86 ; then
-        DISTLINK="https://releases.1c.ru/version_files?nick=Platform83&ver=${PVR}/rpm.tar.gz"
+        DISTLINK="https://releases.1c.ru/version_files?nick=Platform83&ver=${PVR}"
         ARCH_SUF="i386"
     elif use amd64 ; then
-        DISTLINK="https://releases.1c.ru/version_files?nick=Platform83&ver=${PVR}/rpm64.tar.gz"
+        DISTLINK="https://releases.1c.ru/version_files?nick=Platform83&ver=${PVR}"
         ARCH_SUF="x86_64"
     fi
     einfo "1. Please download from:" 
