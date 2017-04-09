@@ -5,10 +5,10 @@
 
 EAPI="5"
 
-inherit rpm versionator
+inherit versionator
 
-DESCRIPTION="1C:Enterprise client"
-HOMEPAGE="http://v8.1c.ru/"
+DESCRIPTION="iteampro CLP"
+HOMEPAGE="http://www.iteampro.ru/about/articles/337-raschet-lizingovykh-platezhej"
 
 DIST_PV="$(replace_version_separator 3 '-' )"
 NP="1C_Enterprise83-client"
@@ -25,24 +25,23 @@ SRC_URI="x86? ( ${NP}-${DIST_PV}.i386.rpm
 
 IUSE="-nls"
 RDEPEND="=app-office/1C-Enterprise-server-${PVR} 
-        =net-libs/webkit-gtk-2.4.11-r200
+        >=net-libs/webkit-gtk-1.4.3 
         >=media-gfx/imagemagick-6.6.9 
         >=media-libs/freetype-2.1.9
         >=media-libs/fontconfig-2.3.0
         >=gnome-extra/libgsf-1.10.1
         >=dev-libs/glib-2.12.4
         >=app-crypt/mit-krb5-1.4.2
-        media-fonts/corefonts
-        x11-themes/gtk-engines-adwaita"
+        media-fonts/corefonts"
 		   
 S="${WORKDIR}"
 
 pkg_nofetch() {
     if use x86 ; then
-        DISTLINK="https://releases.1c.ru/version_files?nick=Platform83&ver=${PVR}"
+        DISTLINK="https://releases.1c.ru/version_files?nick=Platform83&ver=${PVR}/client.rpm32.tar.gz"
         ARCH_SUF="i386"
     elif use amd64 ; then
-        DISTLINK="https://releases.1c.ru/version_files?nick=Platform83&ver=${PVR}"
+        DISTLINK="https://releases.1c.ru/version_files?nick=Platform83&ver=${PVR}/client.rpm64.tar.gz"
         ARCH_SUF="x86_64"
     fi
 

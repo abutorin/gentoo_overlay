@@ -7,11 +7,11 @@ EAPI="5"
 
 inherit rpm versionator
 
-DESCRIPTION="1C:Enterprise client"
+DESCRIPTION="1C:Enterprise web-services for application server"
 HOMEPAGE="http://v8.1c.ru/"
 
 DIST_PV="$(replace_version_separator 3 '-' )"
-NP="1C_Enterprise83-client"
+NP="1C_Enterprise83-ws"
 
 SLOT=${PV}
 LICENSE="1CEnterprise_en"
@@ -24,18 +24,11 @@ SRC_URI="x86? ( ${NP}-${DIST_PV}.i386.rpm
            nls? ( ${NP}-nls-${DIST_PV}.x86_64.rpm ) )"
 
 IUSE="-nls"
-RDEPEND="=app-office/1C-Enterprise-server-${PVR} 
-        =net-libs/webkit-gtk-2.4.11-r200
-        >=media-gfx/imagemagick-6.6.9 
-        >=media-libs/freetype-2.1.9
-        >=media-libs/fontconfig-2.3.0
-        >=gnome-extra/libgsf-1.10.1
-        >=dev-libs/glib-2.12.4
-        >=app-crypt/mit-krb5-1.4.2
-        media-fonts/corefonts
-        x11-themes/gtk-engines-adwaita"
+
+RDEPEND="=app-office/1C-Enterprise-server-${PVR}"
 		   
 S="${WORKDIR}"
+
 
 pkg_nofetch() {
     if use x86 ; then
