@@ -1,6 +1,6 @@
 #!/bin/sh
-ebuild ./1C-Enterprise-client/1C-Enterprise-client-$1.ebuild digest
-ebuild ./1C-Enterprise-server/1C-Enterprise-server-$1.ebuild digest
-ebuild ./1C-Enterprise-common/1C-Enterprise-common-$1.ebuild digest
-ebuild ./1C-Enterprise-ws/1C-Enterprise-ws-$1.ebuild digest
-ebuild ./1C-Enterprise-thin-client/1C-Enterprise-thin-client-$1.ebuild digest
+ebuild --force ./1C-Enterprise-client/1C-Enterprise-client-$1.ebuild digest
+ebuild --force ./1C-Enterprise-server/1C-Enterprise-server-$1.ebuild digest
+ebuild --force ./1C-Enterprise-common/1C-Enterprise-common-$1.ebuild digest
+ebuild --force ./1C-Enterprise-ws/1C-Enterprise-ws-$1.ebuild digest
+ebuild --force ./1C-Enterprise-thin-client/1C-Enterprise-thin-client-$1.ebuild digest
